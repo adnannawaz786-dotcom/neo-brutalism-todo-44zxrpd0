@@ -1,0 +1,383 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neo-Brutalism Global Styles */
+
+:root {
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-yellow: #ffff00;
+  --brutalist-pink: #ff69b4;
+  --brutalist-cyan: #00ffff;
+  --brutalist-lime: #32ff32;
+  --brutalist-orange: #ff6500;
+  --brutalist-purple: #8a2be2;
+  --brutalist-red: #ff0000;
+  --brutalist-blue: #0080ff;
+  
+  --shadow-brutal: 4px 4px 0px var(--brutalist-black);
+  --shadow-brutal-lg: 8px 8px 0px var(--brutalist-black);
+  --shadow-brutal-xl: 12px 12px 0px var(--brutalist-black);
+  
+  --border-brutal: 3px solid var(--brutalist-black);
+  --border-brutal-thick: 5px solid var(--brutalist-black);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--brutalist-white);
+  color: var(--brutalist-black);
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  line-height: 1.2;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-image: 
+    linear-gradient(45deg, transparent 40%, rgba(255, 255, 0, 0.1) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(255, 105, 180, 0.1) 50%, transparent 60%);
+  background-size: 60px 60px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  text-shadow: 3px 3px 0px var(--brutalist-yellow);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  text-shadow: 2px 2px 0px var(--brutalist-pink);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  text-shadow: 2px 2px 0px var(--brutalist-cyan);
+}
+
+p {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Brutalist Components Base */
+.brutalist-card {
+  background: var(--brutalist-white);
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  position: relative;
+  transition: all 0.1s ease;
+}
+
+.brutalist-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--brutalist-black);
+}
+
+.brutalist-card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--brutalist-black);
+}
+
+.brutalist-button {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--border-brutal);
+  box-shadow: var(--shadow-brutal);
+  background: var(--brutalist-yellow);
+  color: var(--brutalist-black);
+  padding: 12px 24px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.brutalist-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--brutalist-black);
+}
+
+.brutalist-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--brutalist-black);
+}
+
+.brutalist-button:focus {
+  outline: 3px solid var(--brutalist-pink);
+  outline-offset: 3px;
+}
+
+/* Input Styles */
+.brutalist-input {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: var(--border-brutal);
+  background: var(--brutalist-white);
+  color: var(--brutalist-black);
+  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease;
+}
+
+.brutalist-input:focus {
+  outline: none;
+  border-color: var(--brutalist-pink);
+  box-shadow: inset 2px 2px 0px rgba(255, 105, 180, 0.2);
+}
+
+.brutalist-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+/* Checkbox Styles */
+.brutalist-checkbox {
+  width: 24px;
+  height: 24px;
+  border: var(--border-brutal);
+  background: var(--brutalist-white);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.brutalist-checkbox:checked {
+  background: var(--brutalist-lime);
+}
+
+.brutalist-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--brutalist-black);
+}
+
+/* Animation Classes */
+.brutalist-bounce {
+  animation: brutalBounce 0.6s ease-out;
+}
+
+@keyframes brutalBounce {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-2deg); }
+  50% { transform: scale(1.05) rotate(1deg); }
+  75% { transform: scale(1.02) rotate(-0.5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.brutalist-shake {
+  animation: brutalShake 0.5s ease-in-out;
+}
+
+@keyframes brutalShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px) rotate(-1deg); }
+  75% { transform: translateX(4px) rotate(1deg); }
+}
+
+.brutalist-slide-in {
+  animation: brutalSlideIn 0.3s ease-out;
+}
+
+@keyframes brutalSlideIn {
+  0% { 
+    transform: translateX(-100%) rotate(-5deg);
+    opacity: 0;
+  }
+  100% { 
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.brutalist-slide-out {
+  animation: brutalSlideOut 0.3s ease-in;
+}
+
+@keyframes brutalSlideOut {
+  0% { 
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(100%) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+/* Color Variants */
+.brutalist-yellow {
+  background: var(--brutalist-yellow) !important;
+}
+
+.brutalist-pink {
+  background: var(--brutalist-pink) !important;
+  color: var(--brutalist-white) !important;
+}
+
+.brutalist-cyan {
+  background: var(--brutalist-cyan) !important;
+}
+
+.brutalist-lime {
+  background: var(--brutalist-lime) !important;
+}
+
+.brutalist-orange {
+  background: var(--brutalist-orange) !important;
+  color: var(--brutalist-white) !important;
+}
+
+.brutalist-purple {
+  background: var(--brutalist-purple) !important;
+  color: var(--brutalist-white) !important;
+}
+
+.brutalist-red {
+  background: var(--brutalist-red) !important;
+  color: var(--brutalist-white) !important;
+}
+
+.brutalist-blue {
+  background: var(--brutalist-blue) !important;
+  color: var(--brutalist-white) !important;
+}
+
+/* Utility Classes */
+.brutalist-shadow {
+  box-shadow: var(--shadow-brutal);
+}
+
+.brutalist-shadow-lg {
+  box-shadow: var(--shadow-brutal-lg);
+}
+
+.brutalist-shadow-xl {
+  box-shadow: var(--shadow-brutal-xl);
+}
+
+.brutalist-border {
+  border: var(--border-brutal);
+}
+
+.brutalist-border-thick {
+  border: var(--border-brutal-thick);
+}
+
+.brutalist-text-shadow {
+  text-shadow: 2px 2px 0px var(--brutalist-black);
+}
+
+.brutalist-text-shadow-yellow {
+  text-shadow: 2px 2px 0px var(--brutalist-yellow);
+}
+
+.brutalist-text-shadow-pink {
+  text-shadow: 2px 2px 0px var(--brutalist-pink);
+}
+
+.brutalist-text-shadow-cyan {
+  text-shadow: 2px 2px 0px var(--brutalist-cyan);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .brutalist-card {
+    box-shadow: 3px 3px 0px var(--brutalist-black);
+  }
+  
+  .brutalist-card:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--brutalist-black);
+  }
+  
+  .brutalist-button {
+    padding: 10px 20px;
+    box-shadow: 3px 3px 0px var(--brutalist-black);
+  }
+  
+  .brutalist-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--brutalist-black);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brutalist-white);
+  border: 2px solid var(--brutalist-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brutalist-yellow);
+  border: 2px solid var(--brutalist-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brutalist-pink);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--brutalist-yellow);
+  color: var(--brutalist-black);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--brutalist-yellow);
+  color: var(--brutalist-black);
+  text-shadow: none;
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 3px solid var(--brutalist-pink);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+}
